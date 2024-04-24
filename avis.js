@@ -45,7 +45,11 @@ export function afficherAvis(pieceElement, avis)
     }
     // Rattacher elt p au parentElement que ns avons recupere precedemment
     
-    pieceElement.appendChild(avisElement); 
+    if (pieceElement)
+    {
+        pieceElement.appendChild(avisElement); 
+    }
+   
     
 
 }
@@ -131,7 +135,7 @@ export async function afficherGraphiqueAvis()
          labels: labels,
          datasets: [{
              label: "Étoiles attribuées",
-             data: nb_commentaires.reverse(),              // inverser la liste nb-commentaire pr affciher le nbde commentair pr 5 etoile, 4 etoile ainsi de suite. 
+             data: nb_commentaires.reverse(),              // inverser la liste nb-commentaire pr affciher le nb de commentair pr 5 etoile, 4 etoile ainsi de suite. 
              backgroundColor: "rgba(255, 230, 0, 1)",       // couleur jaune
          }],
 
@@ -149,7 +153,7 @@ export async function afficherGraphiqueAvis()
         },
     };
 
-    // On va Creer le Graphique pr de vrai: Rendu du Graphique ds l elt canvas
+    // Chart=1e biblio js permettan de creer des graphiques HTML;  On va Creer le Graphique pr de vrai: Rendu du Graphique ds l elt canvas
     new Chart(
         document.querySelector("#graphique-avis"),        // on specifie l elt du DOM auquel le rattacher
         config,                                          // c est l objet de configuration
