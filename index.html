@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Les Bonnes Pièces</title>
+		<link rel="stylesheet" href="styles.css">
+		<!--Importer la librairie ds notre page web: Attribut defer= permet de retarder le chargement de ce fichier a plus tard(cad il faut qe l fichier index.html fini de se charger)-->
+		<script src="node_modules/chart.js/dist/chart.umd.js" defer></script>
+		<script type="module" src="pieces.js"></script>
+	</head>
+	
+	<body>
+
+		<header>
+			<img src="images/logo-les-bonnes-pieces.png" alt="LOGO">
+			<h1>Les Bonnes Pièces</h1>
+		</header>
+
+		<main>
+			<!-- Menu de recherche -->
+			<section class="filtres">
+				<h3>Filtres</h3>
+				<h3>Filtres</h3>
+				<button class="btn-trier">Trier par prix croissant</button>
+				<br>
+				<button class="btn-filtrer">Filtrer les pièces non abordables</button>
+				<br>
+				<button class="btn-decroissant">Trier par prix décroissant</button>
+				<br>
+				<button class="btn-nodesc">Filtrer les pièces sans description</button>
+				<br>
+				<p>Prix maximum:</p> 
+				<!--input en dessous va ns permtr de creer un curseur de plage dynamique et en glissant le curseur on affichera la valeur actuelle-->
+				<input type="range" name="prix-max" id="prix-max" min="0" max="60" step="5">
+				<p>Value: <span id="demo"></span></p>
+
+				<!-- Ajout de ce form (avec 3 balise input)ns permettra d ecrire un nouvel avis -->
+				<h3>Ajouter un avis</h3>
+				<form class="formulaire-avis">
+
+					Identifiant de la pièce :<br>
+					<input type="number" name="piece-id"><br>
+					Nom d'utilisateur :<br>
+					<input type="text" name="utilisateur"><br>
+					Avis :<br>
+					<input type="text" name="commentaire"><br>
+					Note:<br>
+					<!--AJouter le nombr d etoile ds le form de creation d 1 avis -->
+					<input type="number" name="nbEtoiles" min="0" max="5"><br>
+					<button>Envoyer</button>
+
+				</form>
+
+				<!-- CREONS 1 Buton Mettre a jour les pieces-->
+				<h3>Données</h3>
+				<button class="btn-maj">Mettre à jour les pièces</button>
+				
+				<!-- Pr afficher le nbr d etoil attribuer sr la page et Ajout de canvas prmt de dessinera l ecran en utlisant des lignes et formes geometriques-->
+				<h3>Aperçu des avis</h3>
+				<canvas id="graphique-avis" width="300" height="300"></canvas>
+
+				<!-- 2em graphique pr affciher le nbr de commentaire attribuer au piece disponibe-->
+				<h3>Statistiques commentaires</h3>
+				<canvas id="graphique-dispo" width="300" height="300"></canvas> 
+
+			</section>
+
+			<!-- Fiches produits -->
+			<section class="fiches">
+
+				<!-- Le tag ci-dessous recevra la liste qu on va creer ou generer -->
+				<div class="abordables">
+					<p>Pièces abordables :</p>
+				</div>
+				<div class="disponible">
+					<p>Pièces disponibles :</p>
+				</div>
+			</section>
+
+		</main>
+
+	</body>
+</html>

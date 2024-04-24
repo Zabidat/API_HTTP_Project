@@ -1,0 +1,29 @@
+{
+  "name": "API-HTTP",
+  "version": "1.0.0",
+  "description": " Creez une page web dynamiques avec javascript en utlisant un API HTTP",
+  "main": "pieces.js",
+  "scripts": {
+    "start": "http-server",
+    "dev": "http-server",
+    "lint": "eslint *.js"          
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Zabidat/API-HTTP-Project.git"
+  },
+  "author": "ZABIDAT",
+  "license": "ISC",
+  
+  "dependencies": {
+    "chart.js": "^4.4.2",
+    "http-server": "^14.1.1" 
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.1.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "globals": "^15.0.0",
+    "nodemon": "^3.1.0"
+  }
+}
