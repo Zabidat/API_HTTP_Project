@@ -7,14 +7,15 @@ import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGra
 //Recuperer les donnees(pieces)eventuellemnt stockees ds le localStorage (avec la fct getItem)
 let pieces = window.localStorage.getItem("pieces");  
 
-if (pieces === null)                                 // s il y a en pas on fait appel au code existant en dessous
+if (pieces === null)                                 // c est pr ne pas acceder au serveur tt le temps cett condition
 {
 
     // Récupération des donnees (ou des pièces ) depuis le fichier JSON(depuis l API HTTP)
     const reponse = await fetch('http://localhost:8081/pieces/');       // la fct fecth(utlise par defaut le verbe GET) envoit une requete et prend en argument()une chaine de caractere qui contient l adresse du serveur web et le chemin qui decrit la ressource que nous souhaiton manipuler.
     pieces = await reponse.json();                   // await(operation asynchrone) ici permt de parsser (transformer) le contenu recuperer(en forme d une chaine de caractere) en haut au format JSON.
-
-
+    const elt1 = pieces[0].categorie;
+    console.log(elt1);
+   
     // Convertir ou TRANSFORMER les donnees recu (avt de les enregistrer ds le localStorage)
     const valeurPieces = JSON.stringify(pieces);
 
