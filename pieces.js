@@ -7,7 +7,7 @@ import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGra
 //Recuperer les donnees(pieces)eventuellemnt stockees ds le localStorage (avec la fct getItem)
 let pieces = window.localStorage.getItem("pieces");  
 
-if (pieces === null)                                 // c est pr ne pas acceder au serveur tt le temps cett condition
+if (pieces === null)                                 // c est pr q le navigateur n accede pas au serveur tt le temps : cett condition
 {
 
     // Récupération des donnees (ou des pièces ) depuis le fichier JSON(depuis l API HTTP)
@@ -28,21 +28,21 @@ if (pieces === null)                                 // c est pr ne pas acceder 
 else
 {
     // s il y a des donnees , on les reconstrui en memoire grace a la fct JSON.parse
-    pieces = JSON.parse(pieces); 
+    pieces = JSON.parse(pieces);   
 
 
 }
 
 
 // On app la fct(ajoutlistenerAvis) pr ajouter l ecoute du formulaire
-ajoutListenerEnvoyerAvis();
+ajoutListenerEnvoyerAvis(); 
 
 
 
 
 
 
-// Fonction qui génère toute la page web
+// Fonction va creer des elts html dont le browzer va generer la page  
 function genererPieces(pieces)
 {
 
@@ -94,7 +94,7 @@ function genererPieces(pieces)
         pieceElement.appendChild(categorieElement); 
 
         //Ajout des éléments au DOM 
-        pieceElement.appendChild(descriptionElement);
+        pieceElement.appendChild(descriptionElement); 
         pieceElement.appendChild(stockElement); 
 
         //Ajout de l elemt au DOM
@@ -267,8 +267,8 @@ for(let i = pieces.length -1 ; i >= 0; i--)
 {
     if(pieces[i].disponibilite === false)
     {
-        nomsDisponibles.splice(i,1)
-        prixDisponibles.splice(i,1)
+        nomsDisponibles.splice(i,1)                           // supprimer ou ajouter 1 elt ds le tableau(i = position ou index de l elt, 1= elt a supprimer , dc ca sera lui mm, ..= elt a jaouter )
+        prixDisponibles.splice(i,1) 
     }
 }
 
